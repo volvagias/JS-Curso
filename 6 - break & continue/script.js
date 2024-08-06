@@ -6,7 +6,7 @@ for (let i = 0; i < numeros.length; i++) {
     // console.log(i);  // me devuelve los índices del array del 0 al 9.
     // console.log(numeros[i]); // me va a devolver los valores de mi array. Del 1 al 0.
 
-    if (i === 5) {  // break nos quitará del ciclo for hasta que el indice i valga 5.
+    if (i === 5) {  // break nos quitará del ciclo for cuando el indice i valga 5.
         break;
     }
     console.log(numeros[i]);
