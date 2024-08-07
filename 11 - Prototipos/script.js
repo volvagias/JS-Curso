@@ -22,7 +22,7 @@ Animal.prototype.sonar = function() {
     console.log ("Hago sonidos");
 }
 
-// creo una nueva instancia de la funcion Animal y le paso parámetros personalizados.
+// creo una nueva instancia de la funcion Animal y le paso parámetros personalizados. Sirve para mejorar el rendimiento de mi página.
 const snoopy = new Animal("Snoopy","Macho"),
       lolaBunny = new Animal ("Lola Bunny", "Hembra");
 
@@ -34,3 +34,14 @@ lolaBunny.sonar();
 
 /* Entonces la función constructora me sirve para no estar haciendo copy paste y creando varios objetos. 
 En su lugar creo nuevas instancias de esos objetos o funciones y les paso nuevos parámetros. */
+
+
+// Herencia Prototípica.
+function Perro(nombre, genero, tamanio) {
+    this.super = Animal;
+    this.super(nombre, genero);
+    this.tamanio = tamanio;
+}
+
+Perro.prototype = new Animal();
+
