@@ -43,5 +43,15 @@ function Perro(nombre, genero, tamanio) {
     this.tamanio = tamanio;
 }
 
+// Perro está heredando de Animal.
 Perro.prototype = new Animal();
+Perro.prototype.constructor = Perro;
 
+// Sobreescritura de métodos del Prototipo padre en el hijo.
+Perro.prototype.sonar = function () {
+    console.log("Soy un perro y mi sonido es un ladrido");
+}
+
+Perro.prototype.ladrar() = function () {
+    console.log("GUAUU GUAUU !!");
+}
