@@ -35,15 +35,23 @@ class Perro extends Animal {
 
     /* Los setters y getters son métodos especiales que nos permiten establecer y obtener valores de
     atributos de nuestra clase. */
+
+    // Usando el getter para obtener la raza.
     get getRaza() {
         return this.raza;
     }
 
+    // Usando el setter para cambiar la raza.
     set setRaza(raza) {
         this.raza = raza;
     }
 }
 
+const mimi = new Animal("Mimi", "Hembra"),
+      scooby = new Perro("Scooby", "Macho", "Gigante");
+
 Perro.queEres(); // como es estático el método o función, no hace falta instanciar la clase como se vio en el capítulo anterior.
 
-console.log(scooby.getRaza);
+console.log(scooby.getRaza); // null
+scooby.setRaza = "Gran Danés"; // acá utilizo el setter.
+console.log(scooby.getRaza); // Gran Danés
