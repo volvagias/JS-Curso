@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+</head>
+<body>
+
+<script>
+// Objeto console
+
+console.log(console); // mandando el parámetro console a un console.log me muestra todos los métodos que maneja.
+console.error("Esto es un error"); // Aparece el string como un error en la consola (mirar console en el navegador).
+console.warn("Esto es un aviso");
+console.info("Esto es un mensaje informativo");
+
+let nombre = "Leonel",
+    apellido = "Bruzzese",
+    edad = 35;
+console.log(nombre, apellido, edad);
+console.log(`Hola mi nombre es ${nombre} ${apellido} y tengo ${edad} años.`); // binding.
+
+// %s recibe un string - %d recibe un number. Una forma diferente de hacerlo que usando binding.
+console.log(`Hola mi nombre es %s %s y tengo %d años.`, nombre, apellido, edad);
+
+console.clear(); // limpia todo lo que está en la consola. Sirve para debuguear, por ejemplo.
+console.log(window);
+console.log(document); // representación del DOM. Acceso a las etiquetas html.
+
+console.dir(document); // para ver todos los atributos del DOM.
+
+// Agrupar logs:
+console.group("Cursos de @jonmmircha en Youtube"); // creando el grupo.
+console.log("Curso de JavaScript");
+console.log("Curso de Node.js");
+console.log("Curso de PWAs");
+console.log("Curso de Flexbox");
+console.log("Curso de Diseño y Programación Web");
+console.groupEnd(); // cerrando el grupo.
+
+//////////////// Método table (con Objetos Globales) ////////////////
+
+console.clear();
+
+console.table(Object.entries(console)); // me crea una tabla ordenada por índices de las propiedades del objeto console.
+console.table(Object.entries(console).sort()); // lo mismo pero los ordena alfabéticamente con el método sort().
+
+
+
+/// (con variables) ///
+
+const numeros = [1, 2, 3, 4, 5, 6];
+const vocales = ["a","e","i","o","u"];
+console.table(numeros); // no se coloca Object.entries porque no le paso como parámetro un objeto sino variables.
+console.table(vocales);
+
+/// (con objetos Literales, es decir, definidos por el usuario)
+
+const perro = {
+    nombre: "Boni",
+    raza: "Boxer",
+    color: "Cafe"
+}
+console.table(perro);
+
+console.clear();
+
+/// time
+
+console.time("Cuánto tiempo tarda mi código."); // Inicializo el contador de timepo y debajo va todo el código que quiero calcular.
+const arreglo = Array(1000000);
+
+for(let i = 0; i < arreglo.length; i++) {
+    arreglo[i] = i; // en el arreglo, en la posición "i", mostrame el valor de "i".
+}
+console.timeEnd("Cuánto tiempo tarda mi código."); // Termino el contador de tiempo. El string debe ser idéntico al del .time
+
+console.log(arreglo);
+
+</script>
+
+    
+</body>
+</html>
