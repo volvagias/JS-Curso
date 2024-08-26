@@ -9,7 +9,7 @@
 <body>
 
 <script>
-// Objeto console
+//////////////////////////////////////////////// OBJETO CONSOLE //////////////////////////////////////////////////////
 
 console.log(console); // mandando el parámetro console a un console.log me muestra todos los métodos que maneja.
 console.error("Esto es un error"); // Aparece el string como un error en la consola (mirar console en el navegador).
@@ -56,7 +56,7 @@ const vocales = ["a","e","i","o","u"];
 console.table(numeros); // no se coloca Object.entries porque no le paso como parámetro un objeto sino variables.
 console.table(vocales);
 
-/// (con objetos Literales, es decir, definidos por el usuario)
+/// (con objetos Literales, es decir, definidos por el usuario) ///
 
 const perro = {
     nombre: "Boni",
@@ -67,7 +67,7 @@ console.table(perro);
 
 console.clear();
 
-/// time
+/// Método time
 
 console.time("Cuánto tiempo tarda mi código."); // Inicializo el contador de timepo y debajo va todo el código que quiero calcular.
 const arreglo = Array(1000000);
@@ -78,6 +78,93 @@ for(let i = 0; i < arreglo.length; i++) {
 console.timeEnd("Cuánto tiempo tarda mi código."); // Termino el contador de tiempo. El string debe ser idéntico al del .time
 
 console.log(arreglo);
+
+console.clear();
+
+/// Método count (saber cuántas veces se ejecuta un método y en qué orden).
+
+for(let i = 0; i <= 100; i++) {
+    console.count("código for");
+    console.log(i); // 
+}
+
+console.clear();
+
+/// Método assert
+
+let x = 1,
+y = 2,
+pruebaXY = "Se espera que X siempre sea menor que Y.";
+
+console.assert(x < y, {x, y, pruebaXY}); // condición y variables entre llaves.
+// si se cumple la condición, la consola no mostrará el mensaje.
+
+/* Ejemplo:
+let x = 2,
+y = 2,
+*/
+
+// Aquí sí se mostraría el mensaje de error.
+
+
+
+
+//////////////////////////////////////////////// OBJETO DATE //////////////////////////////////////////////////////
+
+console.log(Date());
+
+let fecha = new Date(); // creo una nueva instancia de la fecha.
+console.log(fecha); // muestra la fecha completa.
+console.log(fecha.getDate()); // muestra el día del mes solamente.
+console.log(fecha.getDay()) ; 
+// el número que devuelve de un solo valor representa el día de la semana (de lun. a dom.).
+// D L M Mi J V S -> 0 1 2 3 4 5 6
+console.log(fecha.getMonth()); // Mes.
+console.log(fecha.getFullYear()); // Año.
+console.log(fecha.getHours()); // Horario.
+console.log(fecha.getMinutes()); // Minutos.
+console.log(fecha.getSeconds()); // Segundos.
+console.log(fecha.getMilliseconds()); // Milisegundos.
+
+console.log(fecha.toString()); // paso la fecha completa con su horario a un formato más entendible.
+console.log(fecha.toDateString()) // solo el día del mes (sin horarios).
+console.log(fecha.toLocaleString()); // la fecha completa a un formato del país local con su horario.
+console.log(fecha.toLocaleDateString()); // la fecha completa a un formato del país local (sin horarios).
+console.log(fecha.toLocaleTimeString()); // Solo el horario.
+console.log(fecha.getTimezoneOffset()); // Uso horario en el que nos encontramos.
+
+console.log(fecha.getUTCDate()); // El día de Londres (meridiano de Greenwich).
+console.log(fecha.getUTCHours()); // El horario de Londres (meridiano de Greenwich).
+
+console.log(Date.now()); // Arroja un número. Cuántos segundos han pasado desde 1/1/1970 (fecha formato Time Stamp).
+
+let cumpleLeo = new Date(1993, 10, 20); // en mes se pone un número menos porque es el índice del array.
+console.log(cumpleLeo);
+
+
+console.clear();
+
+//////////////////////////////////////////////// OBJETO MATH //////////////////////////////////////////////////////
+
+// Es un objeto estático.
+console.log(Math);
+
+/// Métodos del Objeto Math.
+
+console.log(Math.PI); // el número pi.
+console.log(Math.abs(-7.8)); // devuelve el valor absoluto de un número. Es decir su cantidad sin importar si es positivo o negativo.
+console.log(Math.ceil(7.8)); // redondea al número entero mayor más cercano - en este caso: 8. 
+console.log(Math.floor(7.8)); // redondea al número entero menor más cercano - 7.
+console.log(Math.round(7.49)); // redondea al número entero más cercano (sea menor o mayor).
+
+console.log(Math.sqrt(81)); // sacar la raíz cuadrada de un número.
+console.log(Math.pow(2, 5)); // elevar potencias, 2 elevado a la 5ta. (2 * 2 * 2 * 2 * 2).
+console.log(Math.sign(-5)); // indica si el número es negativo (-1), 0 o positivo (1).
+
+console.log(Math.random()); // devuelve un valor random entre 0 y 1.
+console.log(Math.random() *1000); // devuelve un valor random entre 0 y 1000.
+
+console.log(Math.round(Math.random() *1000)); // un método dentro de otro método. El round me va a redondear el random.
 
 </script>
 

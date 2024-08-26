@@ -30,7 +30,7 @@ class Perro extends Animal {
 
     // Método estático: es aquél que se puede ejecutar sin necesidad de instanciar la clase.
     static queEres() {
-        console.log("Los perros somos animales mamíferos.")
+        console.log("Los perros somos animales mamíferos.");
     }
 
     /* Los setters y getters son métodos especiales que nos permiten establecer y obtener valores de
