@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        /*
+        Expresiones Regulares:
+
+        Son una secuencia de caracteres que forma un patrón de búsqueda,
+        principalmente utilizada para la búsqueda de patrones de cadenas de caracteres.
+
+        Se encuentran en cualquier lenguaje de programación.
+
+        */
+
+        let cadena = "Lorem ipsum dolor sit amet consecteturlorem adipisicing elit. Nihil illo itaque assumenda odit? Nesciunt maxime dolorum eum recusandae explicabo praesentium officia adipisci laudantium beatae fugiat aspernatur, nobis aperiam blanditiis consequuntur!"
+
+        let expReg = new RegExp("lorem","gi"); // recibe dos parámetros. 1 - lo que quiero buscar, 2 - Flag o Bandera (en este 
+        // caso "g" - (que significa 'global') - va a hacer que la búsqueda no se quede con el primer "lorem" que encuentre y vaya al último).
+        // "i" ignora mayúsculas y minúsculas.
+
+        let expReg2 = /lorem/ig; // otra forma de expresar una Expresión Regular. Después de la barra se colocan las Flags.
+
+        // let expReg2 = /\d/ig; // el "\d" busca si hay números.
+
+        console.log(expReg.test(cadena)); // el método test verifica si existe. Da true en este caso porque "lorem"
+        // es una palabra que está en la variable cadena.
+
+        console.log(expReg.exec(cadena)); // devuelve un arreglo con más información.
+
+        console.log(expReg2.test(cadena)); // es lo mismo.
+
+        // Las Expresiones regulares son muchas, buscar en INTERNET para lo que necesites hacer.
+
+    </script>
+
+</body>
+</html>
