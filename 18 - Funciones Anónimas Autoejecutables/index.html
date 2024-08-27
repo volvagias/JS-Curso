@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    // Función Anónima Autoejecutable (se usaba antes de las librerías reactivas):
+
+    (function() {
+        console.log("Mi primer IIFE");
+    }) (); // función anónima.
+    
+    alert("Hola"); // función con nombre.
+
+    (function(d, w, c) {
+        console.log("Mi segunda IIFE");
+        console.log(d);
+        console.log(w);
+        c.log("Este es un console.log");
+    }) (document, window, console); // estoy pasando el objeto document en la variable "d", el objeto window a la
+    // variable "w", el objeto console a la variable "c".
+    // es una forma de abreviar la palabra "document" por ejemplo, utilizando solo la letra "d".
+    // c.log (donde "c" es la abreviatura que he elegido para el objeto console).
+
+
+    // Otras FORMAS de escribir las Funciones Anónimas Autoejecutables:
+    // Clásica (ya vista)
+    (function() {
+        console.log("Versión Clásica");        
+    }) ();
+
+    // La Crockford (JavaScrip The Good Parts)
+    ((function() {
+        console.log("versión Crockford");
+    })());
+
+    // Unaria
+    +function() {
+        console.log('versión Urania');
+    } ();
+
+    // Facebook
+    !function() {
+        console.log('versión Facebook');
+    } ();
+
+</script>
+
+</body>
+</html>
