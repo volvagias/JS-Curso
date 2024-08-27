@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    
+    <script>
+
+        // Son métodos del Objeto window
+        console.log(window);
+
+        // alert("Hola esto es una alerta."); // tiene un botón de "Aceptar".
+        // confirm("Hola esto es una confirmación"); // tiene dos botones: "Aceptar" y "Cancelar".
+        // prompt("Hola esto es un aviso y le permite al usuario ingresar un valor.");
+
+        let alerta = alert("Hola esto es una alerta."); // tiene un botón de "Aceptar".
+            confirmacion = confirm("Hola esto es una confirmación"); // tiene dos botones: "Aceptar" y "Cancelar".
+            aviso = prompt("Hola esto es un aviso y le permite al usuario ingresar un valor.");
+
+        console.log(alerta); // undefined
+        console.log(confirmacion); // true o false según qué botón se presione.
+        console.log(aviso); // null (vacío) si no se completa el input - o mostrará el string o lo que el usuario escriba.
+        
+    </script>
+
+</body>
+</html>
