@@ -124,7 +124,7 @@ function holaQueTal(texto = "", espacio = undefined) {
     }
 }
 
-holaQueTal('Hola que tal', ' ');
+holaQueTal('Hola que tal', ' '); // el ' ' va a buscar un espacio en el texto y ahi va a hacer la division del texto.
 
 
 
