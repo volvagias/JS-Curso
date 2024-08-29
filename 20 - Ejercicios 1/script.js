@@ -138,15 +138,21 @@ holaQueTal('Hola que tal', ' ');
 
 // holaMundo();
 
-function concatenarTexto(message = '') {
-    if(!message) {
-        return console.warn('Debe escribir un texto'); // con un return ya no se sigue leyendo todo el cuerpo del if.
-    } else {
-        console.info(message.concat(' ', message)); // El método concat() combina dos o más cadenas de texto y devuelve una cadena de texto nueva.
-    }
+function concatenarTexto(message = '', veces = undefined) {
+    if(!message) return console.warn('Debe escribir un texto'); // con un return ya no se sigue leyendo todo el cuerpo del if.
+    // los if con una sola linea pueden escribirse sin llaves.
+    
+    if(veces === undefined) return console.warn('No ingresaste el número de veces a repetir el texto');
+
+    if(veces === 0) return console.error('El número de veces no puede ser 0');
+
+    if(Math.sign(veces) === -1) return console.error("El número de veces no puede ser negativo"); // el método "sign" indica si el número es negativo (-1), 0 o positivo (1).
+
+    for(let i = 1; i <= veces; i++) console.info(`${message}, ${i}`); // el for empieza en 1 porque necesito el numero de veces.
+    
 }
 
-concatenarTexto("Hola Mundo", "Hola Mundo");
+concatenarTexto('Hola Mundo', 3);
 
 
 
