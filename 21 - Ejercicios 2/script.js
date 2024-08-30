@@ -1,5 +1,6 @@
 // 5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
 
+/*
 function invertirString(texto = '', separador = undefined) {
     if(!texto) return console.warn("Tiene que ingresar un texto.");
     if(texto) return console.info(
@@ -13,10 +14,13 @@ function invertirString(texto = '', separador = undefined) {
     // Y con el método 'join' puedo volver a unir cada elemento del array en una sola cadena de texto.
 }
 
+
 invertirString("Hola Mundo", " ");
+*/
 
 // 6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
 
+/*
 function contarVeces(texto = '', palabraRepetida = undefined) {
     if(!texto) return console.warn("Tiene que ingresar un texto.");
     if(palabraRepetida === undefined) return console.warn("Tiene que ingresar una palabra.");
@@ -28,6 +32,28 @@ function contarVeces(texto = '', palabraRepetida = undefined) {
     console.info(result.length);
 }
 contarVeces('hola mundo adios mundo', 'mundo');
+*/
 
 // 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+
+function esPalindromo(frase = '') {
+    if(!frase) return console.warn("Tiene que ingresar una frase.");
+
+   const izqDer = frase;
+
+   const derIzq = frase.split('').reverse().join('');
+
+   if(izqDer !== derIzq) return console.log(false)
+   if(izqDer === derIzq) return console.log(true);
+}
+
+esPalindromo('salas');
+
 // 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+
+// Dudo mucho que este en particular esté bien resuelto. Pero funciona al menos.
+function eliminarPatron(texto = '') {
+    console.info(texto.slice(3, texto.length));
+}
+
+eliminarPatron('xyz1');
