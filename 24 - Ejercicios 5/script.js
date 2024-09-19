@@ -22,5 +22,5 @@ function cuantosAños(fechaUsuario = new Date) {
     return console.info(fechaActual - fechaDada);
 }
 
-cuantosAños(new Date(1993,11,20));
+cuantosAños(new Date(1993,12,20));
 
