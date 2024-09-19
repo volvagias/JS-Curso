@@ -29,4 +29,28 @@ function vocalesConsonantes(message = '') {
 vocalesConsonantes('Hola Mundo');
 
 // 19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
+
+function validarNombre(nombre = '') {
+    let expReg = /^[A-Za-zÑñÁáÉéÍíÓúÜü\s]+$/.test(nombre); // contempla de la letra "a" a la "z" (minúsculas y mayúsculas), demás cosas que agregué también como la Ñ.
+    // el \s es que permite espacios.
+
+    return(expReg)
+        ? console.info(`${nombre}, es un nombre válido.`)
+        : console.error(`${nombre}, no es un nombre válido.`);
+}
+
+validarNombre('Jonathan MirCha'); // true
+validarNombre('Jonathan_++ MirCha'); // false
+
 // 20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
+
+function validarEmail(email = '') {
+    let expRegEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email);
+
+    return(expRegEmail)
+        ? console.info(`${email}, es un email válido.`)
+        : console.error(`${email}, es un email inválido.`);
+}
+
+validarEmail('leonel.bruzzese@gmail.com');
+validarEmail('leonel.b ruzzese@gmail.com');
