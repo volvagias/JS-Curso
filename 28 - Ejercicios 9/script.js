@@ -25,7 +25,7 @@ La clase recibirá un objeto al momento de instanciarse con los siguentes datos:
 
 
 let movie = {
-    id: undefined,
+    id: 9,
     title: '',
     director: '',
     year: undefined,
@@ -44,4 +44,13 @@ class Pelicula {
         this.genre = movie.genre;
         this.calification = movie.calification;
     }
+
+    validaciones() {
+        if(movie.id.length !== 9) return console.error('El número de ID debe tener 9 caracteres.');
+        if(movie.id.length === 9) {
+            movie.id.split('');
+        }
+        return console.log(movie.id);
+    }
 }
+
