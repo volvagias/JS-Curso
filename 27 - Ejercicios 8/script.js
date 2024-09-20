@@ -24,4 +24,20 @@ function arrayAscDesc(array) {
 arrayAscDesc([7, 5, 7, 8, 6]);
 
 // 25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
+
+function eliminarDuplicados(array2) {
+    if(!(array2 instanceof Array)) return console.error("Debe ingresar un array de elementos.");
+
+    newArray2 = [];
+
+    for (let i = 0; i < array2.length; i++) {
+        if(!(newArray2.includes(array2[i]))) {
+            newArray2.push(array2[i]);
+        }
+    }
+    return console.info(newArray2);
+}
+
+eliminarDuplicados(["x", 10, "x", 2, "10", 10, true, true]);
+
 // 26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
