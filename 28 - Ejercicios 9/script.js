@@ -22,3 +22,26 @@ La clase recibirá un objeto al momento de instanciarse con los siguentes datos:
 
 * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
 */
+
+
+let movie = {
+    id: undefined,
+    title: '',
+    director: '',
+    year: undefined,
+    country: '',
+    genre: '',
+    calification: undefined
+}
+
+class Pelicula {
+    constructor(movie) {
+        this.id = movie.id;
+        this.title = movie.title;
+        this.director = movie.director;
+        this.year = movie.year;
+        this.country = movie.country;
+        this.genre = movie.genre;
+        this.calification = movie.calification;
+    }
+}
