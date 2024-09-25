@@ -1,11 +1,39 @@
-/*
-1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
-2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
-3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
-4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
+// 1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
 
-En el video 35 te doy mi solución, antes de verlo trata de resolver los ejercicios, y comparte tus resultados en alguna plataforma como GitHub o CodePen y comparte el enlace de tus soluciones en los comentarios del video. 
+/*
+function stringCount(cadena = '') {
+    if(typeof cadena !== 'string') return console.error('No está permitido ingresar números. Solo letras.');
+    if(typeof cadena === 'string') return console.info(cadena.length);
+}
+stringCount('Hola Mundo');
 */
+
+// 2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
+
+/*
+function stringCut(texto = undefined, limite = undefined) {
+    if(typeof texto !== 'string') return console.error('No está permitido ingresar números. Solo letras.');
+    else {
+        console.info(texto.slice(0, limite));
+    }
+}
+stringCut('Hola Mundo', 4);
+*/
+
+// 3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
+
+function textosSeparados(cadena = '', separador = '') {
+    if(typeof cadena !== 'string') return console.error('Debe ingresar solo letras.');
+    else {
+        console.info(cadena.split(separador));
+    }
+}
+textosSeparados('hola que tal', ' ');
+
+// 4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
+
+// En el video 35 te doy mi solución, antes de verlo trata de resolver los ejercicios, y comparte tus resultados en alguna plataforma como GitHub o CodePen y comparte el enlace de tus soluciones en los comentarios del video. 
+
 
 
 ////////////// 1)
@@ -39,6 +67,7 @@ contarCadena("Hola Mundo"); // devuelve el console.info
 /* pero en este caso es una funcion declarada (no expresada como la del ej. de arriba), 
 por lo que cuando llame a la función deberá ser debajo de la misma, sino dará error */
 
+/*
 const contarCadena = (cadena = "") =>
 (!cadena)
     ? console.warn("No ingresaste ninguna cadena")
@@ -46,7 +75,7 @@ const contarCadena = (cadena = "") =>
 
 contarCadena();
 contarCadena("Hola Mundo");
-
+*/
 
 
 
@@ -85,6 +114,7 @@ cortarSaludo2();
 
 /* Mejor resuelto */
 
+/*
 function cortarSaludo2(string = '', longitud = undefined) {
     if(!string) {
         console.warn("No ingresaste una cadena de texto");
@@ -96,7 +126,7 @@ function cortarSaludo2(string = '', longitud = undefined) {
 
 cortarSaludo2(); // aparece el console.warn
 cortarSaludo2("Hola Mundo", 4); // Se recortan los índices del 0 al 3 y aparece "Hola" en el console.info
-
+*/
 
 ////////////// 3)
 
@@ -113,6 +143,7 @@ holaQueTal();
 
 /* Mejor resuelto */
 
+/*
 function holaQueTal(texto = "", espacio = undefined) {
     if(!texto) {
         console.warn("No ingresaste una cadena de texto");
@@ -125,7 +156,7 @@ function holaQueTal(texto = "", espacio = undefined) {
 }
 
 holaQueTal('Hola que tal', ' '); // el ' ' va a buscar un espacio en el texto y ahi va a hacer la division del texto.
-
+*/
 
 
 ////////////// 4 )  REVISAAAAAAAAAAR
@@ -138,6 +169,7 @@ holaQueTal('Hola que tal', ' '); // el ' ' va a buscar un espacio en el texto y 
 
 // holaMundo();
 
+/*
 function concatenarTexto(message = '', veces = undefined) {
     if(!message) return console.warn('Debe escribir un texto'); // con un return ya no se sigue leyendo todo el cuerpo del if.
     // los if con una sola linea pueden escribirse sin llaves.
@@ -153,8 +185,7 @@ function concatenarTexto(message = '', veces = undefined) {
 }
 
 concatenarTexto('Hola Mundo', 3);
-
-
+*/
 
 
 
