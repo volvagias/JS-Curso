@@ -22,6 +22,7 @@ stringCut('Hola Mundo', 4);
 
 // 3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
 
+/*
 function textosSeparados(cadena = '', separador = '') {
     if(typeof cadena !== 'string') return console.error('Debe ingresar solo letras.');
     else {
@@ -29,8 +30,29 @@ function textosSeparados(cadena = '', separador = '') {
     }
 }
 textosSeparados('hola que tal', ' ');
+*/
 
 // 4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
+
+/*
+function stringRepeat(cadena = '', repeticiones = undefined) {
+    if(typeof cadena !== 'string') return console.error('Debe ingresar solo letras.');
+    else if(typeof repeticiones !== 'number') return console.error('Debe ingresar solo números.');
+    else {
+        return console.info(cadena.repeat(repeticiones));
+    } 
+}
+stringRepeat('Hola Mundo', 3);
+*/
+
+// O también:
+
+function stringRepeat(cadena = '', repeticiones = undefined) {
+    if(typeof cadena !== 'string') return console.error('Debe ingresar solo letras.');
+    else if(typeof repeticiones !== 'number') return console.error('Debe ingresar solo números.');
+    else return console.info(cadena.repeat(repeticiones));
+}
+stringRepeat('Hola Mundo', 3);
 
 // En el video 35 te doy mi solución, antes de verlo trata de resolver los ejercicios, y comparte tus resultados en alguna plataforma como GitHub o CodePen y comparte el enlace de tus soluciones en los comentarios del video. 
 
