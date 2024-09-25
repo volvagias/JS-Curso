@@ -50,7 +50,10 @@ stringRepeat('Hola Mundo', 3);
 function stringRepeat(cadena = '', repeticiones = undefined) {
     if(typeof cadena !== 'string') return console.error('Debe ingresar solo letras.');
     else if(typeof repeticiones !== 'number') return console.error('Debe ingresar solo números.');
-    else return console.info(cadena.repeat(repeticiones));
+    else return console.info(Array(repeticiones).fill(cadena).join(' '));
+    // El argumento repeticiones en Array(repeticiones) se utiliza para crear un array con una longitud específica.
+    // fill: Llena esos espacios vacíos con el valor de cadena.
+    // Une todos los elementos del array en una sola cadena, separándolos por un espacio al colocar (' ').
 }
 stringRepeat('Hola Mundo', 3);
 
