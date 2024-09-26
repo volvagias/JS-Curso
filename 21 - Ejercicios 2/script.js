@@ -78,13 +78,17 @@ esPalindromo('Salas');
 // 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
 
 // Forma básica de resolverlo.
+
+/*
 function eliminarPatron(texto = '') {
     console.info(texto.slice(3, texto.length));
 }
-
 eliminarPatron('xyz1');
+*/
 
 // Mejor.
+
+/*
 function eliminarCaracteres(textito = '', patron = '') {
     if(!textito) console.warn("No ingresaste el texto");
     
@@ -97,3 +101,33 @@ function eliminarCaracteres(textito = '', patron = '') {
 }
 
 eliminarCaracteres('xyz1, xyz2, xyz3, xyz4 y xyz5', 'xyz');
+*/
+
+
+
+
+
+
+// 5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+
+/*
+function invertirTexto(cadena = '') {
+    console.info(cadena.split('').reverse().join(''));
+}
+invertirTexto('Hola Mundo');
+*/
+
+// 6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+
+/*
+function palabraRepetida(cadena = '', palabra = '') {
+    
+    let array = cadena.split(' ').filter((word) => word === palabra);
+    console.log(array.length);
+}
+palabraRepetida('hola mundo adios mundo', 'mundo');
+*/
+
+
+
+
