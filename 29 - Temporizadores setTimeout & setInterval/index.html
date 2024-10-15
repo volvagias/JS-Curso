@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Asincronía en JavaScript</h1>
+    <script>
+
+        /*
+        
+        setTimeout(() => {
+           console.log('Este mensaje durará unos 4 segundos. Se ejecuta una sola vez.');
+        }, 4000);
+
+        setInterval(() => {
+            console.log('Este mensaje se ejecutará cada 7 segundos. Se ejecuta todo lo que quiera.');
+        }, 7000);
+        
+        */
+
+        let timeout = setTimeout(() => {
+           console.log('Este mensaje durará unos 4 segundos. Se ejecuta una sola vez.');
+        }, 4000);
+
+        clearTimeout(timeout); // cancela un setTimeout. Para eso hay que guardar el temporizador en una variable como hice arriba.
+
+        
+        let temporizador = setInterval(() => {
+            console.log(new Date().toLocaleTimeString()); // Ejecuto la hora actual actualizada cada 1 segundo.
+        }, 1000);
+
+        clearInterval(temporizador); // cancela un setInterval.
+
+
+    </script>
+</body>
+</html>
