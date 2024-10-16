@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* Si hay dudas, mirar el video 45 más o menos en el minuto 28 en adelante. */
+
+        /* Código Síncrono Bloqueante */
+
+        (function() {                         // Función Anónima Autoejecutable. Visto en capítulo 18.
+            console.log("Código Síncrono");
+            console.log("Inicio");
+
+            function dos() {
+                console.log("Dos");
+            }
+
+            function uno() {
+                console.log("Uno");
+                dos();
+                console.log("Tres");
+            }
+
+            uno();
+            console.log("Fin");
+        }) (); 
+
+
+        /* Código Asíncrono No Bloqueante */
+
+        (function() {
+            console.log("Código Asíncrono");
+            console.log("Inicio");
+
+            function dos() {
+                setTimeout(() => {         // el setTimeout es un mecanismo de Asincronismo.
+                    console.log("Dos");    
+                }, 1000);
+            }
+
+            function uno() {
+                setTimeout(() => {       // Aunque el setTimeout tenga 0 (cero), el código se pondrá en la cola de tareas.
+                    console.log("Uno");
+                }, 0);
+                
+                dos();
+                console.log("Tres");
+            }
+
+            uno();
+            console.log("Fin");
+        }) ();
+
+        /*
+        Se ejecuta en este orden:
+        Código Asíncrono
+        Inicio
+        Tres
+        Fin
+        Uno
+        Dos
+        */
+
+        /*
+        Copiar el código en la página "lopue" y correrlo para ver en qué orden se ejecuta cada cosa. Muy útil.
+        PD: la página no soporta arrow functions.
+        */
+
+    </script>
+</body>
+</html>
