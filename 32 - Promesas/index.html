@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Las promesas son más organizadas que los callbacks.
+        // Una promesa la tenemos que ver como un if else.
+
+        function cuadradoPromise(value) {
+            if(typeof value !== "number") {
+                return Promise.reject(`Error, el valor "${value}" ingresado no es un número.`); 
+                // si se cumple esto nos vamos directo al .catch() y no se ejecutan los .then() posteriores al error.
+            }
+
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {                   // si entramos en el setTimeout ya la promesa se estará ejecutando.
+                    resolve({                        // resolve es como el return positivo de la promesa en caso de que se cumpla.
+                        value: value,                // en este caso es un objeto.
+                        result: value * value
+                    });                       
+                }, 0 | Math.random() * 1000);  // va a tardar diferente tiempo gracias al Math.random (a modo de ejemplo).
+            });  
+        }
+
+        cuadradoPromise(0)          // Ejecuto la función
+            .then(obj => {        // then va a recibir una función, la parte positiva de la promesa (el objeto del resolve).
+                console.log('Inicio Promise');
+                console.log(`Promise: ${obj.value}, ${obj.result}`);
+                return cuadradoPromise(1);  // le ordeno que ejecute de nuevo la función con otro value.
+            })         
+            .then(obj => {
+                console.log(`Promise: ${obj.value}, ${obj.result}`);
+                return cuadradoPromise(2); 
+            })
+            .then(obj => {
+                console.log(`Promise: ${obj.value}, ${obj.result}`);
+                return cuadradoPromise(3); 
+            })
+            .then(obj => {
+                console.log(`Promise: ${obj.value}, ${obj.result}`);
+                return cuadradoPromise(4); 
+            })
+            .then(obj => {
+                console.log(`Promise: ${obj.value}, ${obj.result}`);
+                return cuadradoPromise(5); 
+            })
+            .then(obj => {
+                console.log(`Promise: ${obj.value}, ${obj.result}`);
+                console.log('Fin Promise');  // Fin de la promesa.
+            })
+            .catch(err => console.error(err)); // si un usuario me pasa un tipo de dato invalido, por ej.
+
+        /* Cuando trabajamos con promesas tenemos dos métodos para usar:
+        then() = el siguiente bloque que se va a ejecutar una vez que se cumpla la condición inicial. Se puede usar la cantidad de then() que necesitemos. 
+        
+        catch() = va a capturar el error resultante del 'reject'.
+        */
+
+
+    </script>
+</body>
+</html>
