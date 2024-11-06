@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Symbols crean elementos privados dentro de un objeto y referencias únicas.
+
+        let id = Symbol();
+        id2 = Symbol();
+
+        console.log(id === id2); // false. Ya que Symbol() crea una referencia única.
+
+        ///////////////////////////
+
+        let ref = Symbol('ref'); // lo que está entre paréntesis es como una etiqueta. Me ayuda en el console.log para no ver solo la palabra 'Symbol'.
+        ref2 = Symbol('ref2');  
+
+        console.log(ref === ref2); // false (y no tiene que ver lo que tienen entre paréntesis).
+        console.log(ref, ref2); // Symbol(ref) Symbol(ref2)
+        console.log(typeof ref, typeof ref2); // symbol symbol
+
+        ///////////////////////////
+        // es una buena costumbre escribirlos así y en una constante.
+        const NOMBRE = Symbol('nombre');
+
+        const persona = {
+            [NOMBRE]:"Leo", // entre corchetes le puedo asignar valores dentro de un objeto al Symbol.
+            edad: 35
+        }
+        console.log(persona);
+
+        persona.NOMBRE = "Leonel Bruzzese";
+        console.log(persona); // no afecta a "Leo", crea otra propiedad para "Leonel Bruzzese".
+
+        console.log(persona.NOMBRE); // "Leonel Bruzzese".
+        console.log(persona[NOMBRE]); // "Leo".
+
+        ///////////////////////////////
+        const SALUDAR = Symbol('saludar');
+        persona[SALUDAR] = function() {
+            console.log(`Hola`);
+        }
+        console.log(persona);
+        persona[SALUDAR](); // Hola
+
+
+        for (let propiedad in persona) { // for in.
+            console.log(propiedad);
+            console.log(persona[propiedad]); // solo aparecerá "NOMBRE", 35 y "Leonel Bruzzese".
+            // esto se debe a que los Symbols son como propiedades privadas.
+        }
+
+        console.log(Object.getOwnPropertySymbols(persona)); // una forma de hacer públicos los símbolos.
+    </script>
+</body>
+</html>
