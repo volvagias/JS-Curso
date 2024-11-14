@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        ///////// WeakSets: /////////
+        // Ayuda al recolector de basura del navegador a usar menos memoria, mejora el rendimiento de la app.
+
+        // No se puede iterar, recorrer claves y valores (no se puede usar for of, forEach, etc.)
+
+        // los WeakSet cuando detectan un valor null, eliminan la key.****
+
+        /*
+        const ws = new WeakSet();
+
+        let valor1 = {"valor1": 1};
+        let valor2 = {"valor2": 2};
+        let valor3 = {"valor3": 3};
+
+        ws.add(valor1); // WeakSets solo permite interactuar con un objeto primitivo y de a uno solo (1).
+        ws.add(valor2);
+        console.log(ws);
+
+        console.log(ws.has(valor1)); // true
+        console.log(ws.has(valor3)); // false
+
+        ws.delete(valor2);
+        console.log(ws);
+
+        ws.add(valor1);
+        ws.add(valor3);
+        console.log(ws);
+
+        setInterval(() => console.log(ws), 1000);
+
+        setTimeout(() => {
+            valor1 = null;
+            valor2 = null;
+            valor3 = null;
+        }, 5000); // pasado este tiempo, estas variables se eliminan. En el SetInterval va a devolver el ws con menos datos.
+
+        */
+
+        /////// WeakMaps ///////
+
+        // Ayuda al recolector de basura del navegador a usar menos memoria, mejora el rendimiento de la app.
+
+        // lo mismo pero con Maps:
+
+        const wm = new WeakMap();
+
+        let llave1 = {};
+        let llave2 = {};
+        let llave3 = {};
+            
+        wm.set(llave1, 1);
+        wm.set(llave2, 2);
+        console.log(wm);
+
+        console.log(wm.has(llave1)); // true.
+        console.log(wm.has(llave3)); // false.
+
+        console.log(wm.get(llave1)); // 1
+        console.log(wm.get(llave2)); // 2
+        console.log(wm.get(llave3)); // undefined.
+
+        wm.delete(llave2);
+        console.log(wm); // 1
+        
+        wm.set(llave2, 2);
+        wm.set(llave3, 3);
+        console.log(wm);
+
+        setInterval(() => console.log(wm), 1000);
+
+        setTimeout(() => {
+            llave1 = null;
+            llave2 = null;
+            llave3 = null;
+        }, 5000);
+    </script>
+</body>
+</html>

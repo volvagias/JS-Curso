@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Un objeto que sirve para almacenar valores. Parecido a un objeto primitivo.
+        // Es una colección de datos.
+        const mapa = new Map();
+        mapa.set("nombre","Leo");
+        mapa.set("apellido","Bruzzese");
+        mapa.set("edad", 35);
+
+        console.log(mapa);
+        console.log(mapa.size); // el número de elementos que tiene. No se usa length.
+        console.log(mapa.has("correo")) // false.
+        console.log(mapa.has("nombre")); // true.
+
+        console.log(mapa.get("nombre")); // con 'get' obtengo el valor de la llave.
+
+        mapa.set("nombre","Leonel Bruzzese"); // con 'set' cambio el valor de la llave.
+        console.log(mapa.get("nombre")); // Leonel Bruzzese.
+
+        mapa.delete("apellido"); // Borro una llave con 'delete'.
+        console.log(mapa);
+
+        // cómo recorremos un mapa:
+
+        // for of
+
+        for (let [key, value] of mapa) {
+            console.log(`Llave:${key}, Valor:${value}`);
+        }
+
+
+        const mapa2 = new Map([
+            ["nombre", "Freddie"],
+            ["edad", 7],
+            ["animal", "perro"],
+            [null, "nulo"]
+        ]);
+
+        console.log(mapa2);
+
+
+        // almacenar keys y valores por separado:
+        /* Usar el operador spread en este caso es útil para transformar fácilmente un iterable (como el Map de arriba) en un array, 
+        lo que permite manipular los datos con métodos de array como .map(), .filter(), etc. */
+
+        const llavesMapa2 = [...mapa2.keys()];
+        const valoresMapa2 = [...mapa2.values()];
+
+        console.log(llavesMapa2);
+        console.log(valoresMapa2);
+    </script>
+</body>
+</html>
