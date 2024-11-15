@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ITERABLE
+        /* una variable o tipo de dato es iterable cuando se pueden recorrer 
+        (arreglos, strings, Maps, Sets, elementos del DOM) */
+
+        // ITERADOR
+        // El mecanismo que está corriendo los elementos (for, for in, for of, Array.from(), Spread operator, promesas, etc).
+        // Es una interfaz especial con la que podremos acceder a todo iterable.
+
+        const iterable = [1, 2, 3, 4, 5];
+        // const iterable = "Hola Mundo";
+        // const iterable = new Set([1, 2, 3, 3, 4, 5]);
+        // const iterable = new Map([["nombre","Leonel"], ["edad", 30]]);
+
+        // Accedemos al iterador del iterable.
+        const iterador = iterable[Symbol.iterator]();
+
+        console.log(iterable);
+        console.log(iterador);
+        /*
+        console.log(iterador.next()); // devuelve el siguiente elemento de mi iterable y un "done" (que indica si es el último elemento de mi arreglo).
+        console.log(iterador.next()); // done: false
+        console.log(iterador.next());
+        console.log(iterador.next());
+        console.log(iterador.next());
+        console.log(iterador.next()); // done: true
+        */
+
+        // Lo mismo que arriba.
+        let next = iterador.next(); // obtengo el primer valor del iterador.
+
+        while (!next.done) {   // El bucle sigue iterando mientras next.done sea false.
+            console.log(next.value);
+            /* Dentro del while, 
+            después de procesar next.value con console.log(next.value), debes obtener el siguiente valor del iterador. */
+            next = iterador.next(); // Esto se hace con next = iterador.next();.
+        }
+
+    </script>
+</body>
+</html>
