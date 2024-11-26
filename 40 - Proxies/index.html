@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // los Proxies hacen copia de un objeto literal. Y permite realizar ciertas operaciones y validaciones entre el objeto original y la nueva instancia que hemos generado.
+        const persona = {
+            nombre: "",
+            apellido: "",
+            edad: 0
+        }
+
+        const handler = {  // o manejador.
+            set(obj, prop, valor) {
+                if(Object.keys(obj).indexOf(prop) === -1) { // si en el objeto persona no existe la propiedad que estoy agregando en el proxy, entonces indexOf devuelve -1.
+                    return console.error(`La propiedad "${prop}" no existe en el objeto persona.`);
+                }
+
+                if(
+                    (prop === 'nombre'|| prop === 'apellido') && !(/^[A-Za-zÑñÁáÉéÍíÓúÜü\s]+$/.test(valor))
+                ) {
+                    return console.error(`La propiedad "${prop}" sólo acepta letras y espacios en blanco.`); // si a algún valor le pongo un número por ej. saltaría este console.error().
+                }
+                obj[prop] = valor;
+            }
+        }
+
+        const leo = new Proxy(persona, handler); // le pasas el objeto a tratar 'persona' y el manejador 'handler'. leo es el proxy
+        
+        leo.nombre = "Leonel";
+        leo.apellido = "Bruzzese";
+        leo.edad = 31;
+
+        // si a agrego nuevas propiedades se agregan en el proxy:
+        leo.pagina = "@volvagias";
+
+        console.log(leo); // la consola te etiqueta al objeto como tipo proxy.
+        // en este console.log() podemos ver que los valores siguen estando vacíos, intactos y la edad en 0 ya que en el handler no hay ninguna validación.
+        // a menos que descomente su contenido.
+
+        console.log(persona); // se ven reflejados los cambios del proxy en el objeto original. Mantienen una vinculación.
+        // pero por el if del set no lo vas a poder agregar.
+
+    </script>
+</body>
+</html>
