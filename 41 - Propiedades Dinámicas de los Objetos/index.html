@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        ///// Quiero que dinámicamente en mi objeto 'objUsuarios' (que está vacío) se vaya agrandando de datos.
+        
+        /*
+        const objUsuarios = {};
+        const usuarios = ["Leo", "Freddie", "Dai", "Cathy"];
+
+        usuarios.forEach((usuario, index) => objUsuarios[`id_${index}`] = usuario);
+        // es lo mismo: usuarios.forEach(function(usuario, index) {objUsuarios[`id_${index}`] = usuario});
+        // [`id_${index}`] (creo una propiedad dinámica y lo igualo al valor de cada elemento del array usuario).
+
+        console.log(objUsuarios);
+        */
+
+        ///// Ahora quiero escribir directamente dentro del objeto sin usar el forEach.
+
+        let aleatorio = Math.round(Math.random() * 100 + 5);
+        
+        const objUsuarios = {
+            propiedad: "Valor",
+            [`id_${aleatorio}`]: "Valor aleatorio"
+        };
+        console.log(objUsuarios);
+        
+    </script>
+</body>
+</html>
