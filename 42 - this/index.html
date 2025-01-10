@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(this); // acá hace referencia al objeto Window. Que es lo que me va a devolver la consola.
+        // el this (solito) hace referencia a ese Objeto.
+        console.log(window);
+        console.log(this === window); // Dará true.
+
+        this.nombre = "Contexto Global";
+        console.log(this.nombre);
+
+        function imprimir() {
+            console.log(this.nombre);
+        }
+        imprimir();
+
+        const obj = {
+            nombre: "Contexto Objeto",
+            imprimir: function () {  // transformo una propiedad en un método y le paso una función.
+                console.log(this.nombre);
+            }
+        }
+        obj.imprimir(); // Contexto Objeto. Ya que el scope (o alcance) de este "this" no puede salir del obj.
+
+        const obj2 = {
+            nombre: "Contexto Objeto 2",
+            imprimir // toma la function imprimir de arriba.
+        }
+        obj2.imprimir(); // Contexto Objeto 2.
+
+        const obj3 = {
+            nombre: "Contexto Objeto 3",
+            imprimir: () => {   // usando arrow function, esta, no maneja su propio scope (no lo crea) obedece al scope padre, entonces arrojará en el console log el this.nombre global.
+                // dará como resultado "Contexto Global" así que fijarse si usar arrow function o función anónima. OJO!
+                console.log(this.nombre);
+            }
+        }
+        obj3.imprimir(); // Contexto Global.
+
+        function Persona (nombre) {
+            this.nombre = nombre;
+            
+            // return console.log(this.nombre);
+
+            return function () {
+                console.log(this.nombre, "prueba");
+            }
+        }
+
+        let leo = new Persona("Leonel");
+        leo(); // saca Contexto Global porque la función del return crea un nuevo contexto, no tiene una propiedad nombre.
+        // y como no encuentra una propiedad nombre, se va a fijar en el contexto global.
+    </script>
+</body>
+</html>
