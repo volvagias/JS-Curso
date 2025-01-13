@@ -51,10 +51,12 @@
             return function () {
                 console.log(this.nombre, "prueba");
             }
+
+            // return () => console.log(this.nombre); // acá si devolvería leo() de abajo en la consola "Leonel."
         }
 
         let leo = new Persona("Leonel");
-        leo(); // saca Contexto Global porque la función del return crea un nuevo contexto, no tiene una propiedad nombre.
+        leo(); // saca "Contexto Global prueba" porque la función del return crea un nuevo contexto, no tiene una propiedad nombre.
         // y como no encuentra una propiedad nombre, se va a fijar en el contexto global.
     </script>
 </body>
