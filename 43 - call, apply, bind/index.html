@@ -11,8 +11,20 @@
         this.lugar = "Contexto Global";
 
         function saludar() {
-            console.log();
+            console.log(`${this.lugar}`);
         }
+        saludar(); // Contexto Global.
+
+        // const obj = {
+        //     lugar: "Contexto Objeto",
+        //     saludar
+        // }
+        // obj.saludar(); // Contexto Objeto. (toma el "lugar" de dentro del objeto).
+
+        const obj = {
+            lugar: "Contexto Objeto",
+        }
+        saludar.call(obj); // con call voy a ejecutar saludar pero mandando a llamar al obj. (cambia el this)
 
     </script>
 </body>
