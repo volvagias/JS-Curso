@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // JSON vino a quitarle protagonismo a XML.
+        // es un formato de intercambio de información (hoy en día JSON es el estándar).
+
+        // En un ecommerce por ejemplo, al enviar tus datos JS a un banco, estos se pasan a JSON
+        // para que le banco pueda recibirlos y adaptarlos al lenguaje que use la página del banco, phyton por ej.
+
+        const json = {
+            cadena: "Leonel",
+            numero: 31,
+            booleano: true,
+            arreglo: ["correr", "programar", "cocinar"],
+            objeto: {
+                instagram: "@volvagias",
+                email: "leonel.bruzzese@gmail.com"
+            },
+            nulo: null
+        }
+        console.log(json);
+
+        // El método JSON.parse() toma una cadena JSON y la transforma en un objeto de JavaScript en el navegador.
+
+        console.log(JSON);
+        console.log(JSON.parse("{}")); // ya el navegador (en javascript) lo toma como un arreglo y no un string (osea un objeto).
+        console.log(JSON.parse("[1,2,3]")); // lo mismo acá.
+        console.log(JSON.parse("true")); // lo mismo acá.
+        console.log(JSON.parse("19")); // lo mismo acá.
+        console.log(JSON.parse("null")); // lo mismo acá.
+        // console.log(JSON.parse("undefined")); // ERROR porque no es un formato válido para JS.
+
+        // El método JSON.stringify() convierte un objeto o valor de JavaScript en una cadena de texto JSON.
+        console.log(JSON.stringify({})); // JS lo convierte en este caso en una cadena de texto.
+        console.log(JSON.stringify([1,2,3])); // cadena de texto.
+        console.log(JSON.stringify(true)); // lo mismo acá.
+        console.log(JSON.stringify(undefined)); // lo mismo acá.
+
+        console.log(JSON.stringify(json)); // todo el objeto lo pasa a un string.
+
+        console.log(JSON.parse('{"cadena":"Leonel", "nuermo": 35, "arreglo": ["correr","programar","cocinar"]}'));
+        // paso el objeto a JS en el navegador.
+    </script>
+</body>
+</html>
