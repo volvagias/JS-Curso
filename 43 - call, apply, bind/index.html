@@ -10,10 +10,10 @@
         console.log(this); // estoy en el scope globar "Window".
         this.lugar = "Contexto Global";
 
-        function saludar() {
-            console.log(`${this.lugar}`);
+        function saludar(saludo, aQuien) {
+            console.log(`${saludo} ${aQuien} desde el ${this.lugar}`);
         }
-        saludar(); // Contexto Global.
+        saludar("Hola", "Leillo"); // Contexto Global.
 
         // const obj = {
         //     lugar: "Contexto Objeto",
@@ -24,7 +24,36 @@
         const obj = {
             lugar: "Contexto Objeto",
         }
-        saludar.call(obj); // con call voy a ejecutar saludar pero mandando a llamar al obj. (cambia el this)
+        saludar.call(obj, "Hola", "Leonel"); // con call voy a ejecutar saludar pero mandando a llamar al obj. (cambia el this)
+        // con call le das un nuevo contexto a una función.
+        
+        //saludar.call(null, "Hola", "Leonel"); // si pongo null uso el Contexto Global.
+        //saludar.call(this, "Hola", "Leonel"); // si pongo null uso el Contexto Global.
+        
+        
+
+        saludar.apply(obj, ["Adios", "Leonel"]); // funciona igual que "call" pero utiliza un arreglo.
+        
+        // saludar.apply(null, "Hola", "Leonel"); // si pongo null uso el Contexto Global.
+        // saludar.apply(this, "Hola", "Leonel"); // si pongo null uso el Contexto Global.
+
+        
+        //=========================
+
+
+        // bind
+        const persona = {
+            nombre: "Leo",
+            saludar: function () {
+                console.log(`Hola ${this.nombre}`);
+            }
+        }
+        persona.saludar();
+
+        const otraPersona = {
+            saludar: persona.saludar.bind(persona) // le enlazo el contexto del obj persona.
+        }
+        otraPersona.saludar();
 
     </script>
 </body>
