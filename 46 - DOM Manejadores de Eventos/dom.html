@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+</head>
+<body>
+
+    <h3>Eventos en JS</h3>
+    <h4>Manejadores de Eventos o Handler</h4>
+    
+    <button onclick="holaMundo()">Evento con atributo HTML</button> <!-- Todos los eventos comienzan con la palabra "on"-->
+    <!-- Ventajas:
+
+        -Rápido y fácil de entender en ejemplos pequeños.
+        -Acceso inmediato al objeto event implícito en navegadores modernos.
+        
+        Desventajas:
+
+        -Mezcla JavaScript con HTML, lo que complica el mantenimiento en proyectos grandes.
+        -Solo permite un manejador por evento.
+        -Difícil de reutilizar o actualizar dinámicamente desde JavaScript. 
+    -->
+    <br><br>
+    <button id="evento-semantico">Evento con manejador semántico</button>
+    <!-- Ventajas:
+
+        - Mantiene una separación clara entre HTML y JavaScript.
+        - Es más fácil de mantener y escalar.
+        - Permite reemplazar el manejador asignando uno nuevo al mismo evento (onclick).
+        
+        Desventajas:
+
+        -Solo permite un manejador por evento; el último sobrescribe cualquier anterior (aunque esto puede ser una ventaja en ciertos casos).
+        -No es tan flexible como addEventListener (no soporta múltiples manejadores para un mismo evento).
+    -->
+    <br><br>
+    <button id="evento-multiple">Evento con manejador múltiple</button>
+    <!-- Ventajas: podés ejecutar varias funciones seguidas sin que se sobrepisen -->
+</body>
+<script src="dom.js"></script> <!-- Coloco aquí el script para evitar errores en eventos -->
+</html>
